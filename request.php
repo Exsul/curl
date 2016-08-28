@@ -81,7 +81,7 @@ class request
     $this->ch->UseCookieFile($cookie_container);
     //$this->ch->SendHeaders(config::HEADERS);
 
-    $response = $this->ch->Execute(config::API_URL.$endpoint);
+    $response = $this->ch->Execute($endpoint);
 
     $this->FreeCookieFile($cookie_container);
 
