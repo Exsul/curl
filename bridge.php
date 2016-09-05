@@ -74,6 +74,7 @@ class bridge
     $header_length = curl_getinfo($this->__curl, CURLINFO_HEADER_SIZE);
     $this->result['header'] = substr($response, 0, $header_length);
     $this->result['body'] = substr($response, $header_length);
+    $this->result['code'] = curl_getinfo($this->__curl, CURLINFO_HTTP_CODE);
 
     curl_close($this->__curl);
 
@@ -83,6 +84,11 @@ class bridge
   public function GetHeader()
   {
     return $this->result['header'];
+  }
+
+  public function GetHTTPCode()
+  {
+    return $this->result['code'];
   }
 
 
